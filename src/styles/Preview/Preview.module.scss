@@ -1,0 +1,17 @@
+.preview {
+    position: relative;
+    flex: none;
+    width: 100%;
+    max-width: var(--max-width);
+    height: calc(var(--max-height) - 40px);
+    max-height: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 1px solid var(--background-color-1);
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #0003;
+    color: white;
+    overflow: hidden;
+}

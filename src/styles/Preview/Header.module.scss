@@ -1,0 +1,116 @@
+.header {
+    flex: none;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: var(--background-color-1);
+    overflow: hidden;
+    z-index: 2;
+
+    h3 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 48px;
+        font-weight: bold;
+        color: var(--text-color-3);
+        margin: 0 -160px 0 20px;
+        opacity: 0.3;
+        transform: rotate(-5deg);
+        pointer-events: none;
+    }
+    .style {
+        flex: 1;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        overflow-y: auto;
+        z-index: 1;
+
+        button {
+            flex: none;
+            width: 160px;
+            height: 30px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-color-1);
+            background: var(--background-color-2);
+            border-radius: 5px 5px 0 0;
+            transition: background 0.3s;
+            cursor: pointer;
+
+            &:hover {
+                background: var(--background-color-3);
+            }
+
+            &.active {
+                background: var(--background-color-4);
+            }
+
+            img {
+                width: 20px;
+                height: 20px;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+
+            span {
+                display: flex;
+                justify-content: flex-start;
+                align-items: flex-end;
+                gap: 3px;
+                font-size: 12px;
+                font-weight: bold;
+                text-transform: uppercase;
+                text-align: left;
+
+                &::after {
+                    content: "Style";
+                    font-size: 10px;
+                    font-weight: normal;
+                    color: var(--text-color-4);
+                }
+            }
+        }
+    }
+    .control {
+        flex: none;
+        align-self: flex-start;
+        width: 140px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        button {
+            flex: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--text-color-1);
+            cursor: pointer;
+
+            &:first-child,
+            &:nth-child(2) {
+                cursor: not-allowed;
+            }
+
+            &:hover {
+                background: var(--background-color-3);
+            }
+            &:last-child:hover {
+                color: white;
+                background: #cc4444;
+            }
+        }
+    }
+}

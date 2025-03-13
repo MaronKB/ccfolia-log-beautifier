@@ -1,0 +1,167 @@
+.header {
+    width: 100%;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--background-color-2);
+    box-shadow: 0 0 5px var(--background-color-1);
+    padding: 0 20px;
+    z-index: 100;
+
+    @media (max-width: 768px) {
+        padding: 0;
+    }
+
+    .title {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        h1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            color: var(--text-color-1);
+            margin: 0;
+
+            span:first-child {
+                font-size: 24px;
+                letter-spacing: 6.7px;
+            }
+            span:last-child {
+                font-size: 16px;
+                letter-spacing: 1px;
+            }
+
+            @media (max-width: 768px) {
+                display: none;
+            }
+        }
+
+        h4 {
+            width: 24px;
+            height: 120%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            line-height: 20px;
+            writing-mode: vertical-lr;
+            color: var(--background-color-1);
+            background: var(--text-color-4);
+            opacity: 0.75;
+            transform: rotate(-20deg);
+        }
+    }
+    nav {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 0 0 auto;
+
+        a {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            color: var(--text-color-3);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 20px;
+            opacity: 0.75;
+
+            &:hover {
+                opacity: 1;
+            }
+
+            img {
+                width: 20px;
+                height: 20px;
+                border-radius: 5px;
+                object-fit: cover;
+            }
+
+            span {
+                width: 0;
+                white-space: nowrap;
+                overflow: hidden;
+                transition: width 0.5s;
+            }
+
+            &:hover {
+                span {
+                    width: 50px;
+                }
+            }
+
+            @media (max-width: 768px) {
+                width: 40px;
+
+                span {
+                    display: none;
+                }
+            }
+        }
+
+        .divider {
+            width: 1px;
+            height: 30%;
+            background: var(--gray-color);
+            margin: 0 15px;
+            opacity: 0.5;
+        }
+    }
+    .mode {
+        input {
+            display: none;
+        }
+        label {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 20px;
+            background: var(--text-color-4);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+
+            &:hover {
+                background: var(--text-color-1);
+            }
+
+            span {
+                position: absolute;
+                width: 16px;
+                height: 16px;
+                background: var(--background-color-3);
+                border-radius: 50%;
+                transform: translateX(-10px);
+                transition: transform 0.5s;
+            }
+        }
+
+        input:checked + label > span {
+            transform: translateX(10px);
+        }
+    }
+}
+.box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px) brightness(0.5);
+    z-index: 1000;
+}

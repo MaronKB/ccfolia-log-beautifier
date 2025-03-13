@@ -1,0 +1,138 @@
+@use "./styles/Chats";
+.main {
+}
+.file {
+    position: relative;
+    width: 100vw;
+    max-width: 400px;
+    height: 100vh;
+    max-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-color-4);
+    background: var(--background-color-4);
+    border: 3px dashed var(--text-color-4);
+    border-radius: 15px;
+    opacity: 0.9;
+    cursor: pointer;
+
+    * {
+        pointer-events: none;
+    }
+    input {
+        display: none;
+    }
+    > svg {
+        width: 80px;
+        height: 80px;
+        fill: var(--text-color-4);
+        margin: 30px 0 10px 0;
+        animation: upDown 2s infinite;
+    }
+    @keyframes upDown {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+    h3 {
+        font-size: 24px;
+    }
+    h5 {
+        font-size: 14px;
+    }
+    p {
+        position: absolute;
+        bottom: 10px;
+        font-size: 14px;
+
+        > span {
+            display: inline-flex;
+            gap: 5px;
+            font-weight: bold;
+            margin: 0 4px;
+        }
+    }
+
+    &:hover {
+        border-color: var(--highlight-color-1);
+
+        *{
+            filter: brightness(1);
+        }
+        p {
+            color: var(--highlight-color-1);
+        }
+    }
+
+    &.dragging {
+        background: var(--background-color-1);
+        border-color: var(--highlight-color-1);
+
+        > svg {
+            color: var(--highlight-color-1);
+            opacity: 1;
+        }
+        h3 {
+            color: var(--highlight-color-1);
+        }
+        h5 {
+            color: var(--text-color-4);
+        }
+    }
+}
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 101;
+
+    &.active {
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid #ffffff;
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+
+        .bounce {
+            width: 10px;
+            height: 10px;
+            background: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

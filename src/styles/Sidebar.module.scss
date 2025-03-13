@@ -1,0 +1,168 @@
+.opener {
+    position: absolute;
+    top: 0;
+    left: 0;
+    flex: none;
+    width: 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+    color: var(--text-color-4);
+    background: var(--background-color-1);
+    opacity: 0.4;
+    transition: transform 0.3s;
+    z-index: 1;
+
+    &.opened {
+        transform: translateX(-100%);
+    }
+
+    h3 {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 20px;
+        letter-spacing: 2px;
+        writing-mode: vertical-lr;
+    }
+
+    &:hover {
+        color: var(--text-color-4);
+        background: var(--highlight-color-1);
+        opacity: 1;
+    }
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 99;
+    transition: backdrop-filter 0.3s;
+
+    .actors {
+        flex: none;
+        width: 240px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background: var(--background-color-1);
+        overflow: hidden;
+        transform: translateX(-100%);
+        transition: transform 0.3s;
+
+        .header {
+            flex: none;
+            width: 100%;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            overflow: hidden;
+
+            h3 {
+                flex: 1;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 48px;
+                font-weight: bold;
+                color: var(--text-color-4);
+                overflow: hidden;
+                opacity: 0.3;
+                transform: rotate(-5deg);
+            }
+
+            button {
+                flex: none;
+                width: 40px;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 5px;
+                font-size: 18px;
+                color: var(--background-color-4);
+                background: var(--text-color-1);
+                z-index: 1;
+                transform: rotate(180deg);
+
+                &:hover {
+                    background: var(--highlight-color-1);
+                }
+            }
+        }
+        .content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-y: auto;
+
+            .actor {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 10px;
+                color: var(--text-color-1);
+                background: var(--background-color-4);
+                border-radius: 3px;
+                cursor: pointer;
+                opacity: 0.75;
+                transition: color 0.3s, opacity 0.3s;
+
+                input {
+                    display: none;
+                }
+                img {
+                    flex: none;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 3px;
+                    background: white;
+                    overflow: hidden;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                span {
+                    flex: 1;
+                    font-size: 16px;
+                    font-weight: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                &:hover {
+                    color: var(--highlight-color-1);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.opened {
+        backdrop-filter: blur(5px);
+        pointer-events: auto;
+
+        .actors {
+            transform: translateX(0);
+        }
+    }
+}
